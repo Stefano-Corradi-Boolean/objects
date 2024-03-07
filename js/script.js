@@ -151,3 +151,72 @@ for(let studente of studenti){
 }
 
 console.log(studenti[2].lastName);
+
+const title = 'The Dark Side Of the Moon';
+const artist = 'Pink Floyd';
+const year = 1973;
+const myPrice = '15'
+
+// const disc = {
+//   title: title,
+//   artist: artist,
+//   year: year
+// }
+
+// chisve dinamica
+const nameKey = 'price';
+
+// dando lo stesso nome della variabile fine assegnato sia il nome della chiave che il valore
+const disc = {
+  title,
+  artist,
+  year,
+  [nameKey]: myPrice  // chiave creata dinamicamente in base al valore di una variabile
+}
+
+console.log(disc);
+console.log(disc.price);
+console.log(disc[nameKey]);
+
+// Destructuring
+const phone = {
+  marca: 'Samsung',
+  modello: 'Galaxy',
+  prezzo: 300,
+  peso: 100
+}
+
+// destrutturando prendo le proprità che mi oggorrono dirttamente dall'oggeto inizializzando delle variabili (let o const) che avranno la stessa chiave:valore
+const {marca, modello, prezzo} = phone;
+
+// stessa cosa con sintassi tradizionale
+// const marca = phone.marca;
+// const modello = phone.modello;
+// const prezzo = phone.prezzo;
+
+console.log(phone);
+console.log(marca, modello, prezzo);
+
+// lo spread ...mioOggetto viene usate per clonare tutte le proprità di un oggetto in un nuvo oggetto
+const newPhone = {...phone, colore: 'blu'};
+console.log(newPhone);
+newPhone.peso = '100 gr';
+console.log(newPhone);
+console.log(phone);
+
+const coloriBelli = ['giallo', 'verdoe', 'blu'];
+const nuovoColoriBelli = ['viola', ...coloriBelli, 'arancione', 'bianco']
+console.log(coloriBelli);
+console.log(nuovoColoriBelli);
+
+const database = {
+  mioPhone: {...phone},
+  utente: {...user},
+  colori: [...nuovoColoriBelli]
+}
+console.log(database);
+
+const numeriPari = [2,4,6,8]
+const numeriDispari = [1,3,5,7]
+const tuttiNumeri = [...numeriPari, ...numeriDispari];
+console.log(tuttiNumeri);
